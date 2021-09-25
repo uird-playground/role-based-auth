@@ -1,0 +1,36 @@
+{
+  "name": "role-based-auth",
+  "version": "1.0.0",
+  "description": "Role based authentication for NodeJS and ExpressJS",
+  "main": "index.js",
+  "keywords": [
+    "expressjs",
+    "nodejs",
+    "jwt",
+    "mongodb",
+    "authentication",
+    "passport",
+    "joi",
+    "mongoose",
+    "auth"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "author": "Omar Mokhfi [ob.mokhfi@gmail.com]",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "consola": "^2.15.3",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "joi": "^17.4.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.7",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0"
+  }
+}
