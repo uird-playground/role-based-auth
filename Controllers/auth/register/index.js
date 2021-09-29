@@ -9,6 +9,10 @@ const {
 } = require("../validate");
 const User = require("../../../models/User");
 
+/**
+ * Contains messages returned by the server when exceptions are catched.
+ * @const MSG
+ */
 const MSG = {
   usernameExists: "Username is already taken.",
   emailExists: "Email is already registered.",
@@ -16,6 +20,14 @@ const MSG = {
   signupError: "Unable to create your account.",
 };
 
+/**
+ * Creates a new user.
+ * @async
+ * @function register
+ * @param {Object} userRequest - The data of the user ().
+ * @param {string} role - The role of the user {admin, user, superadmin}.
+ * @return {Object} contains 2 attributes {error/success message : string, success : boolean}.
+ */
 const register = async (userRequest, role, res) => {
   try {
     const signupRequest = await signupSchema.validateAsync(userRequest);
@@ -52,7 +64,6 @@ const register = async (userRequest, role, res) => {
       success: true,
     });
   } catch (err) {
-    // Implement logger function (winston)
     let errorMsg = MSG.signupError;
     if (err.isJoi === true) {
       err.status = 403;

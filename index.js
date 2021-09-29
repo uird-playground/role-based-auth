@@ -4,7 +4,7 @@ const passport = require("passport");
 const { connect } = require("mongoose");
 const { success, error } = require("consola");
 
-const { DB } = require("./config");
+const { DB, REQUEST_TIMEOUT } = require("./config");
 const PORT = 3000;
 
 const app = exp();
@@ -29,7 +29,11 @@ app.use("/api", require("./routes"));
 const startApp = async () => {
   try {
     // Connection With DB
-    await connect(DB, { useNewUrlParser: true, useUnifiedTopology: true });
+    await connect(DB, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      serverSelectionTimeoutMS: REQUEST_TIMEOUT,
+    });
 
     success({
       message: `Successfully connected with the Database \n${DB}`,
