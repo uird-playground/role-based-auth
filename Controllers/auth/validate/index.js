@@ -33,7 +33,7 @@ const signupSchema = Joi.object({
   name: Joi.string().min(2).required(),
   username: Joi.string().min(4).required(),
   email: Joi.string().email().required(),
-  password: joi
+  password: Joi
     .string()
     .pattern(new RegExp("^[a-zA-Z0-9]{3,30}$"))
     .min(8)

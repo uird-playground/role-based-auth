@@ -5,7 +5,7 @@ const { connect } = require("mongoose");
 const { success, error } = require("consola");
 
 const { DB, REQUEST_TIMEOUT } = require("./config");
-const PORT = 3000;
+const PORT = 5000;
 
 const app = exp();
 
