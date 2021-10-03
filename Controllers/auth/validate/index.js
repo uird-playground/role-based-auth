@@ -42,7 +42,7 @@ const signupSchema = Joi.object({
 
 /**
  * Sets a validation schema for login request body.
- * @const signupSchema
+ * @const loginSchema
  */
 const loginSchema = Joi.object({
   username: Joi.string().min(4).required(),

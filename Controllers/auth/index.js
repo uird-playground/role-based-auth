@@ -9,12 +9,21 @@ const userLogin = (userRequest, role, res) => login(userRequest, role, res);
 
 const userAuth = passport.authenticate("jwt", { session: false });
 
+/**
+ * Checks if the provided user role is included in the roles list
+ * @param {Array} roles - list of accepted roles.
+ * @const checkRole
+ */
 const checkRole = (roles) => (req, res, next) => {
   !roles.includes(req.user.role)
     ? res.status(401).json("Unauthorized")
     : next();
 };
 
+/**
+ * returns json of user data.
+ * @const serializeUser
+ */
 const serializeUser = (user) => {
   return {
     username: user.username,

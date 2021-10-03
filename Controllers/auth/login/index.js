@@ -8,6 +8,10 @@ const { SECRET, TOKEN_EXPIRATION } = require("../../../config");
 const User = require("../../../models/User");
 const { loginSchema } = require("../validate");
 
+/**
+ * Contains messages returned by the server when exceptions are catched.
+ * @const MSG
+ */
 const MSG = {
   usernameNotExist: "Username is not found. Invalid login credentials.",
   wrongRole: "Please make sure this is your identity.",
@@ -16,6 +20,14 @@ const MSG = {
   loginError: "Oops! Something went wrong.",
 };
 
+/**
+ * login a user.
+ * @async
+ * @function login
+ * @param {Object} userRequest - The data of the user {username, password} where username can be an email.
+ * @param {string} role - The role of the user {admin, user, superadmin}.
+ * @return {Object} contains 3 attributes {error/success message : string, success : boolean, reason: string}.
+ */
 const login = async (userRequest, role, res) => {
   try {
     const loginRequest = await loginSchema.validateAsync(userRequest);
